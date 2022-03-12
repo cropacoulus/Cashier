@@ -1,5 +1,5 @@
 <template>
-  <v-row id="product">
+  <section id="product">
     <v-row align="center">
       <v-col cols="10">
         <v-autocomplete
@@ -59,11 +59,11 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-row>
+  </section>
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default ({
   data() {
