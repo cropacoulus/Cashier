@@ -33,6 +33,7 @@
                         :key="index"
                         :value="category.id"
                         :disabled="category.id == categoryId"
+                        @change="updateCategoryId(category.id)"
                       >
                           <v-list-item-title>{{ category.title }}</v-list-item-title>
                       </v-list-item>
@@ -62,12 +63,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default ({
   data() {
     return {
-      categoryId: false,
       search: null,
       isLoading: false,
       itemsSearch: [],
@@ -75,6 +75,9 @@ export default ({
     }
   },
   methods: {
+    ...mapMutations('products', {
+      updateCategoryId: 'updateCategoryId'
+    }),
     resetSearchCategory() {
       this.categoryId = false
     }
@@ -91,7 +94,8 @@ export default ({
     },
     ...mapState('products', {
       products: 'products',
-      categories: 'categories'
+      categories: 'categories',
+      categoryId: 'categoryId'
     })
   },
   watch: {

@@ -22,4 +22,11 @@ export const state = () => ({
         { id: 2, title: 'Camera', },
         { id: 3, title: 'Televisi', },
     ],
+    categoryId: 0,
 })
+
+export const mutations = {
+    updateCategoryId(state, categoryId) {
+        state.categoryId = categoryId
+    }
+}
