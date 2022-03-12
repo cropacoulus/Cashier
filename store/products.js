@@ -16,4 +16,10 @@ export const state = () => ({
         { id: 14, title: 'Galaxy Note 3', thumbnail: 'samsung-galaxy-note-3.png', price: 4100000, categoryId: 1 },
         { id: 15, title: 'Sharp Led TV 32LE265i', thumbnail: 'sharp-32-led-32LE265i.png', price: 2300000, categoryId: 3 },
     ],
+    categories: [
+        { id: false, title: 'All' },
+        { id: 1, title: 'Smartphone', },
+        { id: 2, title: 'Camera', },
+        { id: 3, title: 'Televisi', },
+    ],
 })
