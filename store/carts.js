@@ -29,6 +29,12 @@ export const mutations = {
     },
     incrementItem(state, id) {
         state.items.find(item => item.id === id).quantity++
+    },
+    decrementItem(state, id) {
+        let item = state.items.find(item => item.id === id)
+        if(item.quantity > 1) { //jika item lebih dari 1 baru bisa dikurangi
+            item.quantity--
+        }
     }
 }
 
@@ -40,5 +46,11 @@ export const actions = {
         }else {
             commit('addItem', id)//jika tidak ada mengeksekusi method addItem dan membuat objek baru
         }
+    },
+    increment({commit}, id) {
+        commit('incrementItem', id)
+    },
+    decrement({commit}, id) {
+        commit('decrementItem', id)
     }
 }
