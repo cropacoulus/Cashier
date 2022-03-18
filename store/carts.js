@@ -2,6 +2,21 @@ export const state = () => ({
     items: [],
 })
 
+export const getters = {
+    cartItems: (state, getters, rootState) => {
+        return state.items.map(({ id, quantity }) => { //mengakses state items dan melewatkan 2 parameter
+            let product = rootState.products.products.find(product => product.id === id)//mengakses file products dan state products
+            //rootState berfungsi untuk mengakses seluruh file yang ada di folder store
+            return {
+                id: id,
+                title: product.title,
+                price: product.price,
+                quantity
+            }
+        })
+    }
+}
+
 export const mutations = {
     addItem(state, id) {
         state.items.push({
