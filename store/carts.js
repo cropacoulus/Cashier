@@ -14,6 +14,9 @@ export const getters = {
                 quantity
             }
         })
+    },
+    itemTotal: () => (price, quantity) => {
+        return price * quantity
     }
 }
 
