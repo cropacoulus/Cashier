@@ -4,7 +4,7 @@
       <product></product>
     </v-col>
     <v-col cols="4" class="frame-content white">
-      Orders
+      <order></order>
     </v-col>
   </v-row>
 </template>
