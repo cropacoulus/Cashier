@@ -8,15 +8,19 @@ export const mutations = {
             id: id,
             quantity: 1
         })
+    },
+    incrementItem(state, id) {
+        state.items.find(item => item.id === id).quantity++
     }
 }
 
 export const actions = {
-    addToCart({commit}, id) {
-        // const productItem = state.items.find(item => item.id == id)
-        // if (!productItem) {
-        //     commit('addItem', id)
-        // }
-        commit('addItem', id)
+    addToCart({commit, state}, id) {
+        const found = state.items.find(item => item.id === id) // cek apakah id dariproduk tsb sudah ada atau belum
+        if (found) {
+            commit('incrementItem', id)// jika  ada mengeksekusi method incrementItem dan menambahkan quantity
+        }else {
+            commit('addItem', id)//jika tidak ada mengeksekusi method addItem dan membuat objek baru
+        }
     }
 }
